@@ -114,4 +114,4 @@ Python 3.9.10, Django 3.2.3, djangorestframework==3.12.4, PostgreSQL 13.10, Dock
 
 ## Автор
 
-Автоматизация развертывания: [[k0sdm1](https://github.com/k0sdm1)]
+Автоматизация развертывания: [k0sdm1](https://github.com/k0sdm1)
