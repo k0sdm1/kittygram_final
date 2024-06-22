@@ -74,7 +74,7 @@ AVALIABLE_DBS = (
     }
 )
 DATABASES = {
-    'default': AVALIABLE_DBS[USED_DB]
+    'default': AVALIABLE_DBS[int(USED_DB)]
 }
 
 # Password validation
