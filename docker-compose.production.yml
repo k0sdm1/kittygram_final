@@ -1,0 +1,69 @@
+# docker-compose.production.yml
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data_production:/var/lib/postgresql/data
+  backend:
+    image: k0sdm1/kittygram_backend
+    env_file: .env
+    volumes:
+      - static:/backend_static
+  frontend:
+    image: k0sdm1/taski_frontend  # Качаем с Docker Hub
+    env_file: .env
+    command: cp -r /app/build/. /frontend_static/
+    volumes:
+      - static:/static
+  gateway:
+    image: k0sdm1/taski_gateway  # Качаем с Docker Hub
+    env_file: .env
+    volumes:
+      - static:/static/
+    ports:
+      - 9000:80
+      
+      
+      
+      
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+  db:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  backend:
+    image: k0sdm1/kittygram_backend
+    env_file: .env
+    volumes:
+      - static:/backend_static
+      - media:/app/media/
+  frontend:
+    env_file: .env
+    image: k0sdm1/kittygram_frontend
+    command: cp -r /app/build/. /static/
+    volumes:
+      - static:/static
+  gateway:
+    image: k0sdm1/kittygram_gateway
+    env_file: .env
+    ports:
+      - 9000:80
+    volumes:
+      - static:/static
+      - media:/app/media/
