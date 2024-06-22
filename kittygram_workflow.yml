@@ -1,4 +1,4 @@
-name: Main Taski workflow
+name: Main Kittygram workflow
 
 on:
   push:
@@ -71,12 +71,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-
     - name: Install dependencies
       run: |
         cd frontend/
         npm ci
-
     - name: Test frontend
       run: |
         cd frontend/
