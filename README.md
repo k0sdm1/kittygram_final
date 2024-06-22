@@ -1,3 +1,5 @@
+![example workflow](https://github.com/k0sdm1/kittygram_finaL/actions/workflows/main.yml/badge.svg)
+
 #  Как работать с репозиторием финального задания
 
 ## Что нужно сделать
